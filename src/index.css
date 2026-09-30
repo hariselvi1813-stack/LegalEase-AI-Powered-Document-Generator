@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #FD1843;
+  --color-background: #FFF9FA;
+  --color-accent: #0B0B0B;
+  --color-pink: #FD1843;
+  --color-warm-white: #FFF9FA;
+  --color-near-black: #0B0B0B;
+  --font-heading: 'Anton', 'Bebas Neue', Impact, sans-serif;
+  --font-bebas: 'Bebas Neue', 'Anton', sans-serif;
+  --font-body: 'DM Sans', 'Inter', sans-serif;
+}
+
+:root {
+  /* Core Color Palette Variables as requested */
+  --primary: #FD1843;
+  --background: #FFF9FA;
+  --accent: #0B0B0B;
+  --color-primary: #FD1843;
+  --color-background: #FFF9FA;
+  --color-accent: #0B0B0B;
+  --color-pink: #FD1843;
+  --color-warm-white: #FFF9FA;
+  --color-near-black: #0B0B0B;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background, #FFF9FA);
+  color: var(--accent, #0B0B0B);
+  font-family: 'DM Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Bold condensed uppercase typography with tight letter spacing */
+.font-editorial-heading {
+  font-family: 'Anton', 'Bebas Neue', Impact, sans-serif;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  line-height: 0.92;
+}
+
+/* Smooth transitions & interactive micro-states */
+button, input, textarea, select {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Rounded 16px cards */
+.card-theme {
+  border-radius: 16px;
+}
+
+/* ========================================================
+   LIGHTWEIGHT PRINT-FRIENDLY PDF STYLESHEET
+   Guarantees no blank pages and crystal clear black-on-white paper output
+   ======================================================== */
+@media print {
+  /* Hide all app chrome, buttons, headers, forms, hero, cta banner, footer */
+  .no-print,
+  header,
+  footer,
+  nav,
+  button,
+  form,
+  aside,
+  #hero-section,
+  #features-section,
+  #cta-banner-section,
+  #document-form-section {
+    display: none !important;
+  }
+
+  /* Unconstrain body and root container overflow so content is never clipped */
+  html,
+  body,
+  #root,
+  #root > div,
+  main {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    display: block !important;
+    position: static !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  #document-preview-section {
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+
+  /* Explicitly target the printable document container and its contents */
+  #printable-document-container,
+  .printable-document-container,
+  #printable-legal-document,
+  .print-document-sheet,
+  .print-page {
+    display: block !important;
+    visibility: visible !important;
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    font-family: 'Times New Roman', Times, Georgia, serif !important;
+    font-size: 11pt !important;
+    line-height: 1.5 !important;
+  }
+
+  #printable-document-container *,
+  .printable-document-container * {
+    color: #000000 !important;
+  }
+
+  /* Keep signature block intact on one page */
+  .signature-block,
+  .keep-together {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  @page {
+    size: letter portrait;
+    margin: 20mm 15mm 20mm 15mm;
+  }
+}
